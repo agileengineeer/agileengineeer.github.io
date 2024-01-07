@@ -21,15 +21,15 @@ This is Kishore Kota, I am an experienced Engineer, Architect and Leader in Fina
 - TMV Certified Vault 
 
 
-### Domain Expertise
+## Domain Expertise
 
-#### Credit Card Originication
+### Credit Card Originication
 
 I have extensively worked in Credit Card Origination, have done migrations from BureauLink to Windows based Credit Report processing system, Integration to external vendors for Data Verificaiton, Workflow for Pending Reviews, Decision Engine migration from Strata to FICO Advisor, Document Upload, OFAC..etc. All of this over several years, and migrates entier application to micro services leveraging event based architecture. 
 
 
-#### Core Banking 
+### Core Banking 
 
 Small stint in Core Banking leveraging Thouht Machine Vault. Most of my experience is learning oriented about Account Creation, Transaction Posting and Settlement process. 
 
-#### Contact Center
+### Contact Center
