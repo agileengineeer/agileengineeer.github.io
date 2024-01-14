@@ -10,15 +10,22 @@ author: Kishore Kota
 ## Introduction
 This document aims to provide a comprehensive comparison of using Apache Kafka in a shared infrastructure model versus a dedicated infrastructure model for each team within an enterprise.
 
-This document strictly limited to Kafka Tenancy Model and Comparision between Multi Tenancy and Dedicated Tenancy model.
+This document strictly limited to Kafka Tenancy Model, comparing between Multi Tenancy and Dedicated Tenancy model from infra, security and various different aspect of maintainng as a infrastructure product. This is also aimed at brining in different personas ( app engineering, products, sre and infr engineer) and how this deployment model differs for each persona.
 
 
 ## Out of Scope
 
 - Does not cover details around Kafka usecases, usage or deployment architecture.
 
-### Kafka and Multitenancy
-Apache Kafka, while not inherently designed for multitenancy, possesses features that make it suitable for such a setup within an enterprise. Multitenancy in Kafka involves a single Kafka cluster being used by different systems or teams.
+### Kafka Dedicated and Multitenancy
+Apache Kafka, while not inherently designed for multitenancy, it does have features that make it suitable for such a setup within an enterprise. 
+
+**Multitenancy in Kafka** involves a single enterprise Kafka cluster being used by different systems or teams. This would accomodate Eventing needs for **cross products integrations** and **intra product integrations**. 
+
+**Dedicated Tenancy in Kafka** involves a seperate Kafka Deployment of Kafka for each product team, in this case Kafka  assumes to be scoped at two levels, a Kafka instance per Product Team for supporting **intra Product integrations** and an enterprise Kafka instance for **cross product integrations**.
+
+Moving to Dedicated does not eliminate need for Enterprise Kafka, however, it would limit the workload on an enterprise Kafka instance. Depending on the use case, respective applications (aka Micro Services) would need to consum or publish respectively.
+
 
 #### Supporting Features for Multitenancy
 1. **Topic Segregation**: Organizes messages into topics for different teams or applications.
@@ -32,6 +39,12 @@ Apache Kafka, while not inherently designed for multitenancy, possesses features
 - **Resource Contention**: Risk of one tenant’s usage impacting others.
 - **Maintenance and Upgrades**: Complexity in managing without service disruption.
 - **Security and Compliance**: Increased challenge in a shared environment.
+
+---
+
+## Representation of Multi Tenant Kafka
+
+![Muti Tenant Kafka Supporting Cross Product and Intra Product Events](kafka_multi_tenant_deployment.png)
 
 ---
 
