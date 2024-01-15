@@ -13,6 +13,13 @@ This document aims to provide a comprehensive comparison of using Apache Kafka i
 This document strictly limited to Kafka Tenancy Model, comparing between Multi Tenancy and Dedicated Tenancy model from infra, security and various different aspect of maintainng as a infrastructure product. This is also aimed at brining in different personas ( app engineering, products, sre and infr engineer) and how this deployment model differs for each persona.
 
 
+## Terminology
+
+- **product** ] A `product` is a capability and responsibilie for providing certain functionality with in an enterprise. An example would be, Payment Product with in an eCommerce Company. Payment Product would represent processing all of payment related functionality for selling consumer goods via eCommerce.
+
+- **Multitenancy** ] It represents using shared infra strcuture model for running workloads belonging to various different teams.
+
+
 ## Out of Scope
 
 - Does not cover details around Kafka usecases, usage or deployment architecture.
@@ -24,10 +31,12 @@ Apache Kafka, while not inherently designed for multitenancy, it does have featu
 
 **Dedicated Tenancy in Kafka** involves a seperate Kafka Deployment of Kafka for each product team, in this case Kafka  assumes to be scoped at two levels, a Kafka instance per Product Team for supporting **intra Product integrations** and an enterprise Kafka instance for **cross product integrations**.
 
-Moving to Dedicated does not eliminate need for Enterprise Kafka, however, it would limit the workload on an enterprise Kafka instance. Depending on the use case, respective applications (aka Micro Services) would need to consum or publish respectively.
+This discussion is focus on using a Single Kafka for all of the  **intra product integrations** with a given enterprise.
+
+**Please note** - moving to Dedicated does not eliminate need for Enterprise Kafka, however, it would limit the workload on an enterprise Kafka instance. Depending on the use case, respective applications (aka Micro Services) would need to consum or publish respectively.
 
 
-#### Supporting Features for Multitenancy
+### Supporting Features for Multitenancy in Kafka
 1. **Topic Segregation**: Organizes messages into topics for different teams or applications.
 2. **Access Control Lists (ACLs)**: Controls access to specific topics.
 3. **Quotas**: Sets limits on resource usage for clients or users.
@@ -35,7 +44,7 @@ Moving to Dedicated does not eliminate need for Enterprise Kafka, however, it wo
 5. **Performance Isolation**: Achieved through careful planning and resource allocation.
 6. **Monitoring and Logging**: Essential for tracking usage and diagnosing issues.
 
-#### Challenges in Multitenancy
+### Challenges in Multitenancy
 - **Resource Contention**: Risk of one tenant’s usage impacting others.
 - **Maintenance and Upgrades**: Complexity in managing without service disruption.
 - **Security and Compliance**: Increased challenge in a shared environment.
