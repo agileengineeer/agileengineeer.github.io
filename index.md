@@ -1,6 +1,8 @@
 ---
 title: Home
 layout: home
+
+nav_order: 1
 ---
 
 Hello, Thank you for visit my Github Pages.
