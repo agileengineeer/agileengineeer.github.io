@@ -1,6 +1,6 @@
 ---
 layout: home
-title: All You Need to Know in Kafka
+title: Kafka Quick Read
 author: Kishore Kota
 
 nav_order: 2
