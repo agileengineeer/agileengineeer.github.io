@@ -2,6 +2,7 @@
 layout: home
 title: Kafka Deployment Model
 author: Kishore Kota
+nav_order: 3
 ---
 
 
@@ -37,6 +38,9 @@ This discussion is focus on using a Single Kafka for all of the  **intra product
 
 
 ### Supporting Features for Multitenancy in Kafka
+
+Kafka has very good support for Multitenancy , allwoing it to serve multiple teams, applications and produces/consumer. Below are the features that allow multitenancy.
+
 1. **Topic Segregation**: Organizes messages into topics for different teams or applications.
 2. **Access Control Lists (ACLs)**: Controls access to specific topics.
 3. **Quotas**: Sets limits on resource usage for clients or users.
@@ -45,13 +49,15 @@ This discussion is focus on using a Single Kafka for all of the  **intra product
 6. **Monitoring and Logging**: Essential for tracking usage and diagnosing issues.
 
 ### Challenges in Multitenancy
-- **Resource Contention**: Risk of one tenant’s usage impacting others.
+- **Resource Contention**: Risk of one tenant’s usage impacting others. Kafka does provide resource limits, however enforcing and defining them is defined to protect broker, but not necessarily to enforce QOS.
 - **Maintenance and Upgrades**: Complexity in managing without service disruption.
 - **Security and Compliance**: Increased challenge in a shared environment.
 
 ---
 
 ## Representation of Multi Tenant Kafka
+
+Below diagram represents a sample view of different teams with in an enterprise and Kafka usage for cross products integration and intra product integration.
 
 ![Muti Tenant Kafka Supporting Cross Product and Intra Product Events](kafka_multi_tenant_deployment.png)
 
@@ -62,7 +68,7 @@ This discussion is focus on using a Single Kafka for all of the  **intra product
 ### Shared Infrastructure Model
 #### Pros
 - Cost Efficiency 
-  * Overall capacity needed can be optimized and efficient use of the resources thus providing cost efficiency.
+  * Cost Effective as the resources shared across different teams.
 - Easier Maintenance
   * Allows for dedicated enterprise team to manage Kafka Infrastructure. This takes away burden from each and every team trying to manage Kafka on their own.
 - Resource Optimization
