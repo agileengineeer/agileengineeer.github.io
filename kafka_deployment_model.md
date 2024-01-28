@@ -49,7 +49,7 @@ Kafka has very good support for Multitenancy , allwoing it to serve multiple tea
 6. **Monitoring and Logging**: Essential for tracking usage and diagnosing issues.
 
 ### Challenges in Multitenancy
-- **Resource Contention**: Risk of one tenant’s usage impacting others. Kafka does provide resource limits, however enforcing and defining them is defined to protect broker, but not necessarily to enforce QOS.
+- **Resource Contention**: Risk of one tenant’s usage impacting others. Kafka does provide resource limits, however enforcing and defining them is defined to protect broker, but not necessarily to enforce **QOS**.
 - **Maintenance and Upgrades**: Complexity in managing without service disruption.
 - **Security and Compliance**: Increased challenge in a shared environment.
 
@@ -78,11 +78,11 @@ Below diagram represents a sample view of different teams with in an enterprise 
 - Risk of Resource Contention
    * As the resource limits are not supported by Kakfa deployment model, this is a possible scenario - a specific teams deployment may cause resource exchaustion due to incorect planning or unexpected scenario.  
 - Limited Customization
-  * Shared infra limits all teams to be on the same Kafka version and limits any customization, or some use cases might be requiring higher or lower replication factor or availability needs being different, etc.
-- Potential Security Concerns
-  * Does not enforce RBAC at the topic level, this can lead to unauthorized consumption of a topic. Also, these will end up adding as requirement for infrastructure to enforce prior autherization of events as part of consumer onboarding.
+  * Shared infra limits all teams to be on the same Kafka version and limits any customization, or some use cases might be requiring higher or lower RTO, RPO and Reliability. This will be over provisioning for some, as these requirements tend to supersede suprior requirement for all regardless.
+- Operation Overhead with Security
+  * Kafka does have RBAC at the topic level, although tooling available, enforcing these are daunting task and time consuming. This causes lots of operation overhead,
 - Maintainability
-  * Harder to maintain as this model is a monolithic deployment model for proiving eventing capability for an enterprise. As any version upgrades requires large planning and coordination among many different teams, execution of these version upgrades is much harder in this deployment model. 
+  * Harder to maintain as this model is a monolithic deployment model for proivding eventing capability for an enterprise. As any version upgrades requires large planning and coordination among many different teams, execution of these version upgrades is much harder in this deployment model. 
 
 ### Dedicated Infrastructure Model
 #### Pros
@@ -116,6 +116,19 @@ Comparison of shared vs. dedicated models in terms of cost, performance, securit
 | Customization | | ✅ | Ability to customize various configuration options.|
 | Maintainability| | ✅  ||
 
+
+### Comparision Analysis with a Sample Use Case
+
+**Use Case**] An enterprise based on the infrastructure needs with below specifications.
+
+#### Product Team A,B,C,D have below need.
+
+#### Capacity and Performance Requirements
+- **Expected Throughput**: 2 million messages per minute.
+- **Average Message Size**: 1 KB.
+- **Peak Load Handling**: Ability to handle 2x the expected throughput during peak times.
+- **Data Retention Policy**: 7 days.
+- **Replication Factor**: 3 (for data redundancy and fault tolerance).
 
 
 

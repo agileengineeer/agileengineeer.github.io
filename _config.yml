@@ -4,4 +4,5 @@ theme: just-the-docs
 
 url: https://agileengineer.github.io
 
-
+plugins:
+ - jekyll-seo-tag
