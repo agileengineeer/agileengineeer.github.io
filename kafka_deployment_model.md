@@ -9,7 +9,7 @@ nav_order: 3
 ### Kafka in Enterprise Environments: Shared vs. Dedicated Infrastructure Models ( WIP )
 
 ## Introduction
-This document aims to provide a comprehensive comparison of using Apache Kafka in a shared infrastructure model versus a dedicated infrastructure model for each team within an enterprise.
+This document aims to provide a comprehensive comparison for using Apache Kafka in a shared infrastructure model versus dedicated infrastructure model for various teams within an enterprise.
 
 This document strictly limited to Kafka Tenancy Model, comparing between Multi Tenancy and Dedicated Tenancy model from infra, security and various different aspect of maintainng as a infrastructure product. This is also aimed at brining in different personas ( app engineering, products, sre and infr engineer) and how this deployment model differs for each persona.
 
@@ -49,7 +49,7 @@ Kafka has very good support for Multitenancy , allwoing it to serve multiple tea
 6. **Monitoring and Logging**: Essential for tracking usage and diagnosing issues.
 
 ### Challenges in Multitenancy
-- **Resource Contention**: Risk of one tenant’s usage impacting others. Kafka does provide resource limits, however enforcing and defining them is defined to protect broker, but not necessarily to enforce **QOS**.
+- **Resource Contention**: Risk of one tenant’s usage impacting others. Kafka does provide resource limits, however enforcing and defining them is defined to protect broker, but not necessary to enforce **QOS**.
 - **Maintenance and Upgrades**: Complexity in managing without service disruption.
 - **Security and Compliance**: Increased challenge in a shared environment.
 
@@ -131,7 +131,16 @@ Comparison of shared vs. dedicated models in terms of cost, performance, securit
 - **Replication Factor**: 3 (for data redundancy and fault tolerance).
 
 
+### Multitenancy
 
+Multitenance is multi faceted concept, including but not limited to.
+
+- Creating Seperate User Spaces for Tenants.
+- Cofigurating Topics with data retention policies.
+- Securing Topic and Cluster with Ecnryption, Authentication and Autherization.
+- Isolating Tenants with Quitas and Rate Limits.
+- Monitoring and metering.
+- Inter cluster data sharing.
 
 ### Recommendations
 Suggestions based on different enterprise sizes and needs, with decision factors for consideration.
